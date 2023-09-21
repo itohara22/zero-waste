@@ -2,10 +2,11 @@ import React, { useState } from "react";
 
 const Register = () => {
   const initialFormData = {
-    restaurant: "",
+    firstName: "",
+    lastName: "",
     email: "",
     address: "",
-    mobileNumber: "",
+    password: ""
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -29,24 +30,53 @@ const Register = () => {
         </h2>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col w-[500px] text-accent gap-10"
+          className="flex flex-col w-[500px] text-accent gap-8"
         >
+          <div className="relative w-full flex justify-between">
+            <label>Account Type:</label>
+            <div>
+              <input type="checkbox" name="customer" id="customer" />
+              <label htmlFor="customer">Customer</label>
+            </div>
+            <div>
+              <input type="checkbox" name="retailer" id="retailer" />
+              <label htmlFor="retailer">Retailer</label>
+            </div>
+          </div>
           <div className="relative w-full">
             <input
               className="peer bg-transparent w-full text-text border-b-[1px] border-b-accent pb-2 focus:outline-none placeholder-transparent"
               type="text"
-              id="restaurant-name"
-              name="restaurant"
-              placeholder="name"
-              value={formData.restaurant}
+              id="first-name"
+              name="firstName"
+              placeholder="first name"
+              value={formData.firstName}
               onChange={handleChange}
               required
             />
             <label
               className="text-md font-semibold absolute left-0 -top-6 transition-all peer-placeholder-shown:top-0 peer-focus:-top-6"
-              htmlFor="restaurant-name"
+              htmlFor="first-name"
             >
-              Restaurant Name
+              First Name
+            </label>
+          </div>
+          <div className="relative w-full">
+            <input
+              className="peer bg-transparent w-full text-text border-b-[1px] border-b-accent pb-2 focus:outline-none placeholder-transparent"
+              type="text"
+              id="last-name"
+              name="lastName"
+              placeholder="last name"
+              value={formData.lastName}
+              onChange={handleChange}
+              required
+            />
+            <label
+              className="text-md font-semibold absolute left-0 -top-6 transition-all peer-placeholder-shown:top-0 peer-focus:-top-6"
+              htmlFor="last-name"
+            >
+              Last Name
             </label>
           </div>
           <div className="relative w-full">
@@ -70,6 +100,42 @@ const Register = () => {
           <div className="relative w-full">
             <input
               className="peer bg-transparent w-full text-text border-b-[1px] border-b-accent pb-2 focus:outline-none placeholder-transparent"
+              type="password"
+              id="confirm-password"
+              name="confirmPassword"
+              placeholder="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+            <label
+              className="text-md font-semibold absolute left-0 -top-6 transition-all peer-placeholder-shown:top-0 peer-focus:-top-6"
+              htmlFor="password"
+            >
+              Password
+            </label>
+          </div>
+          <div className="relative w-full">
+            <input
+              className="peer bg-transparent w-full text-text border-b-[1px] border-b-accent pb-2 focus:outline-none placeholder-transparent"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+            <label
+              className="text-md font-semibold absolute left-0 -top-6 transition-all peer-placeholder-shown:top-0 peer-focus:-top-6"
+              htmlFor="password"
+            >
+              Confirm Password
+            </label>
+          </div>
+          <div className="relative w-full">
+            <input
+              className="peer bg-transparent w-full text-text border-b-[1px] border-b-accent pb-2 focus:outline-none placeholder-transparent"
               type="text"
               id="address"
               name="address"
@@ -83,24 +149,6 @@ const Register = () => {
               htmlFor="address"
             >
               Address
-            </label>
-          </div>
-          <div className="relative w-full">
-            <input
-              className="peer bg-transparent w-full text-text border-b-[1px] border-b-accent pb-2 focus:outline-none placeholder-transparent"
-              type="number"
-              id="mobile-number"
-              name="mobileNumber"
-              placeholder="number"
-              value={formData.mobileNumber}
-              onChange={handleChange}
-              required
-            />
-            <label
-              className="text-md font-semibold absolute left-0 -top-6 transition-all peer-placeholder-shown:top-0 peer-focus:-top-6"
-              htmlFor="mobile-number"
-            >
-              Contact Number
             </label>
           </div>
           <button className="w-[100px] bg-primary text-text px-4 py-2 rounded-lg">
