@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 const Login = ({ loginHandler }) => {
   const initialFormData = {
     email: "",
-    password: "",
+    password: ""
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -76,9 +76,15 @@ const Login = ({ loginHandler }) => {
           <button className="w-[100px] bg-primary text-text px-4 py-2 rounded-lg">
             Login
           </button>
-          <Link className="text-text" to="/register">
-            Create an Account
-          </Link>
+          <div className="flex flex-col">
+            <label className="text-sm text-text">Don't have an account</label>
+            <Link
+              className="text-text text-lg underline underline-offset-2 hover:text-accent"
+              to="/register"
+            >
+              Create an Account
+            </Link>
+          </div>
         </div>
       </form>
     </div>
