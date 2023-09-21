@@ -6,7 +6,7 @@ function Navbar({ loginHandler, isLoggedIn }) {
     <nav className="bg-background p-4 fixed top-0 inset-x-0 z-10">
       <div className="px-4 md:px-6 lg:px-8 flex justify-between items-center">
         <div className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-accent to-text">
-          <a href="#hero">Zero Waste</a>
+          <Link to="/">Zero Waste</Link>
         </div>
         <ul className="flex justify-between min-w-[40vw]">
           <li>
